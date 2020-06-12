@@ -1,0 +1,11 @@
+---
+# Main user ansible playbook.
+# Write your custom configuration here:
+
+- name: Setting up Telnet server
+  hosts: server
+  become: yes
+  roles:
+    - server
+
+...

@@ -1,0 +1,25 @@
+---
+# This is a role for setting up the server.
+
+- name: Add user and set password
+  user:
+    name: '{{ username }}'
+    password: '{{ password | password_hash(''sha512'') }}'
+
+- name: Install telnetd package
+  apt:
+    name: telnetd
+    update_cache: yes
+
+- name: Change Telnet port
+  replace:
+    path: /etc/services
+    regexp: '23/tcp'
+    replace: '{{ telnet_port }}/tcp'
+
+# xinetd must be installed after changing the Telnet port
+- name: Install xinetd package
+  apt:
+    name: xinetd
+
+...

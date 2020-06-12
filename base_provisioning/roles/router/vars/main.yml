@@ -1,0 +1,5 @@
+aliases:
+  client: 192.168.30.5
+  router: 192.168.30.1
+  server: 192.168.20.5
+routes: []
