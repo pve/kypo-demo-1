@@ -44,4 +44,9 @@ router_mappings:
       ip: 192.168.20.1
     - router: router
       network: client-switch
-      ip: 192.168.30.1 
+      ip: 192.168.30.1
+
+groups:
+  - name: user-accessible
+    nodes:
+      - client
