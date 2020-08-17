@@ -8,7 +8,6 @@ hosts:
       image: ubuntu-bionic-x86_64
       man_user: ubuntu
     flavor: standard.small
-    cpus: 2
 
   - name: client
     base_box: 
