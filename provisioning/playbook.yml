@@ -2,7 +2,7 @@
 
 - name: disable qxl
   hosts:
-      - user-accessible
+      - client
   gather_facts: yes
   become: yes
   tasks:
@@ -12,7 +12,7 @@
 
 - name: user access
   hosts:
-      - user-accessible
+      - client
   gather_facts: no
   become: yes
   tasks:
