@@ -2,8 +2,7 @@
 
 - name: disable qxl
   hosts:
-      - routers
-      - hosts
+      - user-accessible
   gather_facts: yes
   become: yes
   tasks:
