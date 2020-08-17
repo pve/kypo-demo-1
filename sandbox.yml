@@ -1,18 +1,28 @@
 name: telnet-server-sandbox
+
+provider: OpenStack
+
 hosts:
   - name: server
-    base_box: ubuntu/xenial64
-    flavor: csirtmu.tiny1x4
+    base_box: 
+      image: ubuntu-bionic-x86_64
+      man_user: ubuntu
+    flavor: standard.small
     cpus: 2
 
   - name: client
-    base_box: ubuntu/xenial64
-    boot_timeout: 1000
-    box_check_update: false
+    base_box: 
+      image: ubuntu-bionic-x86_64
+      man_user: ubuntu
+    flavor: standard.small
 
 routers:
   - name: router
     cidr: 100.100.100.0/29
+    base_box:
+      image: debian-9-x86_64
+      man_user: debian
+    flavor: standard.small
 
 networks:
   - name: server-switch
@@ -36,3 +46,8 @@ router_mappings:
     - router: router
       network: client-switch
       ip: 192.168.30.1
+
+groups:
+  - name: user-accessible
+    nodes:
+      - client   
