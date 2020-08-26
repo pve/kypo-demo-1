@@ -1,9 +1,13 @@
 ---
 
 - name: disable qxl
-  hosts: all
+  hosts:
+      - routers
+      - hosts
   gather_facts: yes
   become: yes
+  become_user: root
+
   tasks:
       - include_role:
             name: disable-qxl
@@ -14,6 +18,8 @@
       - user-accessible
   gather_facts: no
   become: yes
+  become_user: root
+
   tasks:
       - include_role:
             name: kypo-user-access
