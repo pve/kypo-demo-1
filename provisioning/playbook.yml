@@ -36,9 +36,12 @@
 - name: Setting up Telnet server
   hosts: server
   become: yes
-  roles:
-    - server:
-        username: test
-        password: test
-        telnet_port: 2323
+
+  tasks:
+      - include_role:
+            name: server
+        vars:
+            username: test
+            password: test
+            telnet_port: 2323
 ...
