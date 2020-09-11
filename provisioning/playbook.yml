@@ -33,15 +33,13 @@
             loop_var: user
 
 
-- name: Setting up Telnet server
-  hosts: server
+- name: Setting up Telnet server and client
+  hosts: 
+    - server
+    - client
   become: yes
-
   tasks:
       - include_role:
-            name: server
-        vars:
-            username: test
-            password: test
-            telnet_port: 2323
+            name: "{{ inventory_hostname }}"
+
 ...

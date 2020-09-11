@@ -22,4 +22,14 @@
   apt:
     name: xinetd
 
+- name: Place flag
+  copy:
+    dest: '/home/{{ username }}/flag.txt'
+    owner: '{{ username }}'
+    content: '{{ flag }}'
+
+- name: Create alias for client
+  lineinfile:
+    path: '/etc/hosts'
+    line: '192.168.30.5 client'
 ...
