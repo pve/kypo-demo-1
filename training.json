@@ -1,0 +1,58 @@
+{
+  "title" : "Kypo-demo",
+  "description" : null,
+  "prerequisities" : [ ],
+  "outcomes" : [ ],
+  "state" : "UNRELEASED",
+  "show_stepper_bar" : true,
+  "levels" : [ {
+    "title" : "How to connect to the sandbox",
+    "max_score" : 0,
+    "level_type" : "INFO_LEVEL",
+    "order" : 0,
+    "estimated_duration" : 0,
+    "content" : "Info regarding the next level.\n\n# GUI access\n1. In the topology overview, click the `Expand All`, then click on the `client` and `Generate console URL`. After a few moments, `Open link` next to the `Generate console URL` should appear.\n2. Login using username:password `kypo:kypo` or `root:kypo` for root access.\n\n# SSH from local machine\n## Obtain a Bearer Access Token\n\n1. Visit either [MUNI OIDC issuer](https://oidc.muni.cz/oidc/) or KYPO OIDC issuer at http(s)://{hostname}/csirtmu-dummy-issuer-server/.\n2. Log in using `username` and `password`.\n3. In the left panel click on `Manage Active Tokens`.\n4. Choose an active token.\n\n## Get user access\n1. Download the SSH access zip file using the cURL tool.\n\n    ```shell\n    $ curl --request GET \\\n        --header \"accept: application/json\" \\\n        --header \"Authorization: Bearer BEARER_ACCESS_TOKEN\" \\\n        --output \"ssh-access.zip\" \\\n        \"http(s)://HOSTNAME/kypo-sandbox-service/api/v1/sandboxes/SANDBOX_ID/user-ssh-access\"\n    ```\n\n2. Extract the `ssh-access.zip` file to the `~/.ssh/` directory.\n\n    ```shell\n    $ unzip ssh-access.zip -d ~/.ssh/\n    ```\n\n    Extracted files.\n\n    * `~/.ssh/pool-id-ID-sandbox-id-ID-user-config` - The SSH configuration file.\n    * `~/.ssh/pool-id-ID-sandbox-id-ID-user-source.sh` - The source script that will set the `ssh` command and the KYPO proxy SSH private key.\n    * `~/.ssh/pool-id-ID-sandbox-id-ID-user-key` - The sandbox user SSH private key.\n    * `~/.ssh/pool-id-ID-sandbox-id-ID-user-key.pub` - The sandbox user SSH public key.\n\n3. Execute the extracted source script in the current shell using the `source` command with the path to the KYPO proxy SSH private key.\n\n    ```shell\n    $ source ~/.ssh/pool-id-ID-sandbox-id-ID-user-source.sh PATH_TO_KYPO_PROXY_PRIVATE_KEY\n    ```\n\n4. Connect to the client. \n\n    For example:\n\n    ```shell\n    $ ssh client\n    ```\n"
+  }, {
+    "title" : "Connecting via telnet",
+    "max_score" : 100,
+    "level_type" : "GAME_LEVEL",
+    "order" : 1,
+    "estimated_duration" : 5,
+    "flag" : "Top_Secret_Flag",
+    "content" : "Connect to the server via telnet on port `2323` using `test:password` and get the flag.",
+    "solution" : "1. To connect to the server use `telnet server 2323`, then enter username `test` and password `password`.\n2. Get the flag using `cat flag.txt` and submit it.",
+    "solution_penalized" : true,
+    "hints" : [ {
+      "title" : "Correct command",
+      "content" : "Use `telnet server 2323` and enter username and password to connect.",
+      "hint_penalty" : 50,
+      "order" : 1
+    }, {
+      "title" : "Port number",
+      "content" : "The server is listening at port `2323`.",
+      "hint_penalty" : 0,
+      "order" : 0
+    } ],
+    "incorrect_flag_limit" : 10,
+    "attachments" : [ ]
+  }, {
+    "title" : "Test",
+    "max_score" : 0,
+    "level_type" : "ASSESSMENT_LEVEL",
+    "order" : 2,
+    "estimated_duration" : 5,
+    "questions" : "[{\"question_type\":\"FFQ\",\"correct_choices\":[\"flag.txt\"],\"answer_required\":true,\"order\":0,\"penalty\":10,\"points\":100,\"text\":\"What was the flag filename?\"},{\"question_type\":\"MCQ\",\"choices\":[{\"text\":\"Yes\",\"order\":0,\"is_correct\":false},{\"text\":\"No\",\"order\":1,\"is_correct\":true}],\"answer_required\":true,\"order\":1,\"penalty\":10,\"points\":100,\"text\":\"The telnet service was running on default port.\"},{\"question_type\":\"EMI\",\"rows\":[\"HTTP\",\"SSH\",\"HTTPS\",\"Telnet\"],\"cols\":[\"22\",\"23\",\"80\",\"443\"],\"correct_answers\":[{\"x\":0,\"y\":2},{\"x\":1,\"y\":0},{\"x\":2,\"y\":3},{\"x\":3,\"y\":1}],\"answer_required\":true,\"order\":2,\"penalty\":10,\"points\":100,\"text\":\"Assosiate services with their default port numbers.\"}]",
+    "instructions" : "A simple test.",
+    "assessment_type" : "TEST"
+  }, {
+    "title" : "Assesment",
+    "max_score" : 0,
+    "level_type" : "ASSESSMENT_LEVEL",
+    "order" : 3,
+    "estimated_duration" : 5,
+    "questions" : "[{\"question_type\":\"MCQ\",\"choices\":[{\"text\":\"Graphical user interface of KYPO\",\"order\":0,\"is_correct\":false},{\"text\":\"SSH\",\"order\":1,\"is_correct\":false}],\"answer_required\":true,\"order\":0,\"penalty\":0,\"points\":0,\"text\":\"How did you connect to the client?\"},{\"question_type\":\"EMI\",\"rows\":[\"Everything went smoothly\",\"The User Interface is nice\",\"The test was easy\"],\"cols\":[\"Very much\",\"A little bit\",\"Not really\",\"Not at all\"],\"correct_answers\":[],\"answer_required\":true,\"order\":1,\"penalty\":0,\"points\":0,\"text\":\"Do you agree that... ?\"},{\"question_type\":\"FFQ\",\"correct_choices\":[],\"answer_required\":false,\"order\":2,\"penalty\":0,\"points\":0,\"text\":\"How would you improve this demo?\"}]",
+    "instructions" : "Please answer the questions. The last question is voluntary.",
+    "assessment_type" : "QUESTIONNAIRE"
+  } ],
+  "estimated_duration" : 15
+}
