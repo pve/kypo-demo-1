@@ -1,5 +1,5 @@
 {
-  "title" : "Kypo-demo",
+  "title" : "KYPO Cyber Range Training Demo Content",
   "description" : null,
   "prerequisities" : [ ],
   "outcomes" : [ ],
@@ -13,22 +13,22 @@
     "estimated_duration" : 0,
     "content" : "Info about accessing the game level was moved to the game level."
   }, {
-    "title" : "Connecting via telnet",
+    "title" : "Connecting Via Telnet",
     "max_score" : 100,
     "level_type" : "GAME_LEVEL",
     "order" : 1,
     "estimated_duration" : 5,
     "flag" : "Top_Secret_Flag",
-    "content" : "Connect to the server via telnet on port `2323` using `test:password` and get the flag.\n\n## GUI access\n1. In the topology overview, click the button in the top-right corner of the graph, then `Expand All`, `client` and `Generate console URL`. After a few moments, `Open link` next to the `Generate console URL` should appear.\n\n2. Login using username:password `kypo:kypo` or `root:kypo` for root access.\n\n## SSH from local machine\n1. Use the `Get SSH Access` button.\n\n2. Extract the `ssh-access.zip` file to the `~/.ssh/` directory.\n\n    ```shell\n    $ unzip ssh-access.zip -d ~/.ssh/\n    ```\n\n    Extracted files.\n\n    * `~/.ssh/pool-id-ID-sandbox-id-ID-user-config` - The SSH configuration file.\n    * `~/.ssh/pool-id-ID-sandbox-id-ID-user-source.sh` - The source script that will set the `ssh` command and the KYPO proxy SSH private key.\n    * `~/.ssh/pool-id-ID-sandbox-id-ID-user-key` - The sandbox user SSH private key.\n    * `~/.ssh/pool-id-ID-sandbox-id-ID-user-key.pub` - The sandbox user SSH public key.\n\n3. Execute the extracted source script in the current shell using the `source` command with the path to the KYPO proxy SSH private key.\n\n    ```shell\n    $ source ~/.ssh/pool-id-ID-sandbox-id-ID-user-source.sh PATH_TO_KYPO_PROXY_PRIVATE_KEY\n    ```\n\n4. In `~/.ssh/pool-id-ID-sandbox-id-ID-user-config` add Host `kypo-proxy-jump` and set is as `ProxyJump` for host `man`. \n\n5. Connect to the client to `kypo` or `root` user. \n\n    ```shell\n    $ ssh kypo@client\n    ```\n",
-    "solution" : "1. To connect to the server use `telnet server 2323`, then enter username `test` and password `password`.\n2. Get the flag using `cat flag.txt` and submit it.",
+    "content" : "Your task in this simple level is to connect to the server via **`telnet`** on port **`2323`** using **`test:password`** and get the flag.\n\n## GUI access\n1. In the topology overview, click the button in the top-right corner of the graph, then **`Expand All`**, **`client`** and **`Generate console URL`**. After a few moments, **`Open link`** next to the **`Generate console URL`** should appear.\n\n2. Login using username **`kypo`** and password **`kypo`** for root access.\n\n## SSH from local machine\n1. Use the **`Get SSH Access`** button to download **`ssh-access.zip`**.\n\n2. Extract the **`ssh-access.zip`** file to the **`~/.ssh/`** directory.\n\n    ```shell\n    $ unzip ssh-access.zip -d ~/.ssh/\n    ```\n\n    You will get following files:\n    \n    ```shell\n    ~/.ssh/pool-id-<pool_ID>-sandbox-id-<sbx_ID>-user-config - The SSH configuration file.\n    ~/.ssh/pool-id-<pool_ID>-sandbox-id-<sbx_ID>-user-source.sh - The configuration  script.\n    ~/.ssh/pool-id-<pool_ID>-sandbox-id-<sbx_ID>-user-key - The sandbox user SSH private key.\n    ~/.ssh/pool-id-<pool_ID>-sandbox-id-<sbx_ID>-user-key.pub - The sandbox user SSH public key.\n    ```\n\n3. Execute the extracted source script in the current shell using the **`source`** command with the path to the KYPO proxy SSH private key. The source script that will set the **`ssh`** command and the **KYPO proxy SSH private key**, which is available to instance operator.\n\n    ```shell\n    $ source ~/.ssh/pool-id-<pool_ID>-sandbox-id-<sbx_ID>-user-source.sh PATH_TO_KYPO_PROXY_PRIVATE_KEY\n    ```\n\n4. Connect to the client to **`kypo`** user. \n\n    ```shell\n    $ ssh kypo@client\n    ```",
+    "solution" : "1. To connect to the server use command **` telnet server 2323`**, then enter username **`test`** and password **`password`**.\n\n2. Get the flag using **`cat flag.txt`** and submit it.  \n",
     "solution_penalized" : true,
     "hints" : [ {
-      "title" : "Correct command",
+      "title" : "Correct Cmmand",
       "content" : "Use `telnet server 2323` and enter username and password to connect.",
       "hint_penalty" : 50,
       "order" : 1
     }, {
-      "title" : "Port number",
+      "title" : "Port Number",
       "content" : "The server is listening at port `2323`.",
       "hint_penalty" : 0,
       "order" : 0
@@ -36,7 +36,7 @@
     "incorrect_flag_limit" : 10,
     "attachments" : [ ]
   }, {
-    "title" : "Test",
+    "title" : "Test Example",
     "max_score" : 0,
     "level_type" : "ASSESSMENT_LEVEL",
     "order" : 2,
@@ -45,7 +45,7 @@
     "instructions" : "A simple test.",
     "assessment_type" : "TEST"
   }, {
-    "title" : "Assesment",
+    "title" : "Assesment Example",
     "max_score" : 0,
     "level_type" : "ASSESSMENT_LEVEL",
     "order" : 3,
