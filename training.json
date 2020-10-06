@@ -23,7 +23,7 @@
     "solution" : "1. To connect to the server use command **` telnet server 2323`**, then enter username **`test`** and password **`password`**.\n\n2. Get the flag using **`cat flag.txt`** and submit it.  \n",
     "solution_penalized" : true,
     "hints" : [ {
-      "title" : "Correct Cmmand",
+      "title" : "Correct Command",
       "content" : "Use `telnet server 2323` and enter username and password to connect.",
       "hint_penalty" : 50,
       "order" : 1
