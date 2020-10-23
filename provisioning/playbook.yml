@@ -48,7 +48,7 @@
 
       - name: Restart if broken network
         reboot:
-        when: apt_update.rc != 0
+        when: apt_update is failed
 
       - include_role:
             name: "{{ inventory_hostname }}"
