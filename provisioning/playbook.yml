@@ -33,12 +33,23 @@
             loop_var: user
 
 
+
 - name: Setting up Telnet server and client
   hosts: 
     - server
     - client
   become: yes
   tasks:
+      - name: Test network connection using apt
+        apt:
+          update_cache: yes
+          register: apt_update
+          ignore_errors: yes
+
+      - name: Restart if broken network
+        reboot:
+        when: apt_update.rc != 0
+
       - include_role:
             name: "{{ inventory_hostname }}"
 

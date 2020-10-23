@@ -5,4 +5,12 @@
   lineinfile:
     path: '/etc/hosts'
     line: '192.168.20.5 server'
+
+- name: Install packages
+  apt:
+    pkg:
+     - nmap
+     - medusa
+  update_cache: yes
+
 ...
