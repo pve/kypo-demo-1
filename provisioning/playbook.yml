@@ -43,7 +43,7 @@
       - name: Test network connection using apt
         apt:
           update_cache: yes
-          register: apt_update
+        register: apt_update
         ignore_errors: yes
 
       - name: Restart if broken network
