@@ -10,7 +10,6 @@
   apt:
     pkg:
      - telnetd
-     - nmap
     update_cache: yes
 
 - name: Change Telnet port
@@ -27,19 +26,21 @@
 - name: Create privilege escalation vulnerability
   lineinfile:
     path: /etc/sudoers
-    line: '{{ username }} ALL=(ALL) nmap'
+    line: '{{ username }} ALL=(ALL) /usr/bin/less /home/{{ username }}/flag.txt'
 
 - name: Place flag
   copy:
     dest: '/home/{{ username }}/flag.txt'
     owner: '{{ username }}'
     content: '{{ flag }}'
+    mode: '0600'
 
 - name: Place second flag
   copy:
     dest: '/root/flag.txt'
     owner: root
     content: '{{ flag_2 }}'
+    mode: '0600'
 
 - name: Create alias for client
   lineinfile:

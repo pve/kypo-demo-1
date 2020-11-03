@@ -11,6 +11,6 @@
     pkg:
      - nmap
      - medusa
-  update_cache: yes
+    update_cache: yes
 
 ...
