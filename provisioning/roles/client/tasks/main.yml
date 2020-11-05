@@ -5,4 +5,20 @@
   lineinfile:
     path: '/etc/hosts'
     line: '192.168.20.5 server'
+
+- name: Install packages
+  apt:
+    pkg:
+     - nmap
+     - hydra
+     - medusa
+    update_cache: yes
+
+- name: Add passwords file to the home directory
+  copy:
+    src: passlist.txt
+    dest: /home/kypo/passlist.txt
+    owner: kypo
+    mode: 0644
+
 ...
