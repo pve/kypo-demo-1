@@ -1,6 +1,6 @@
 # kypo-demo
 
-A simple sandbox with a Telnet server and client with training definition for testing purposes.
+A demo to demonstrate the training capabilities of the KYPO Cyber Range Platform.
 
 ## Requirements
 
