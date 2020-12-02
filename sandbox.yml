@@ -1,4 +1,4 @@
-name: telnet-server-sandbox
+name: kypo-demo
 
 provider: OpenStack
 
