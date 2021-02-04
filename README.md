@@ -1,4 +1,4 @@
-# kypo-demo
+# KYPO Cyber Range Platform Demo Training
 
 A demo to demonstrate the training capabilities of the KYPO Cyber Range Platform.
 
