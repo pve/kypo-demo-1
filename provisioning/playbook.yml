@@ -10,7 +10,7 @@
 
   tasks:
       - include_role:
-            name: disable-qxl
+            name: kypo-disable-qxl
         when: ansible_os_family == 'Debian'
 
 - name: user access
@@ -35,7 +35,7 @@
 
 
 - name: Setting up Telnet server and client
-  hosts: 
+  hosts:
     - server
     - client
   become: yes

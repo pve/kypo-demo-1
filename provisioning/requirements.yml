@@ -1,6 +1,0 @@
-
-- src: git@gitlab.ics.muni.cz:CSIRT-MU-public/ansible-roles/kypo-user-access.git
-  scm: git
-
-- src: git@gitlab.ics.muni.cz:CSIRT-MU-public/ansible-roles/disable-qxl.git
-  scm: git
